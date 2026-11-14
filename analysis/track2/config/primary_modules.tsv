@@ -1,0 +1,24 @@
+module_order	module_id	module_label	go_id	post_primary_fixed_nomination_set
+1	SAC	Spindle assembly checkpoint	GO:0031577	FALSE
+2	chromosome_segregation	Chromosome segregation	GO:0007059	FALSE
+3	mitochondrial_energy	Mitochondrial energy	GO:0006119	TRUE
+3	mitochondrial_energy	Mitochondrial energy	GO:0022904	TRUE
+3	mitochondrial_energy	Mitochondrial energy	GO:0032543	TRUE
+3	mitochondrial_energy	Mitochondrial energy	GO:0005761	TRUE
+4	proteostasis_stress	Proteostasis stress	GO:0006986	TRUE
+4	proteostasis_stress	Proteostasis stress	GO:0030968	TRUE
+5	folding_proteasome	Folding and proteasome	GO:0006457	TRUE
+5	folding_proteasome	Folding and proteasome	GO:0010498	TRUE
+5	folding_proteasome	Folding and proteasome	GO:0000502	TRUE
+6	autophagy_mitophagy	Autophagy and mitophagy	GO:0006914	TRUE
+6	autophagy_mitophagy	Autophagy and mitophagy	GO:0000422	TRUE
+7	oxidative_stress	Oxidative stress	GO:0006979	TRUE
+8	oxidant_detox	Oxidant detoxification	GO:0098869	TRUE
+9	ribosome_RNA	Ribosome and RNA	GO:0042254	TRUE
+9	ribosome_RNA	Ribosome and RNA	GO:0006396	TRUE
+10	neural_stemness	Neural stemness	GO:0097150	FALSE
+11	cell_cycle_proliferation	Cell cycle and proliferation	GO:0000278	FALSE
+11	cell_cycle_proliferation	Cell cycle and proliferation	GO:0008283	FALSE
+12	DNA_damage_repair	DNA damage and repair	GO:0006974	FALSE
+12	DNA_damage_repair	DNA damage and repair	GO:0006281	FALSE
+13	apoptosis	Apoptosis	GO:0006915	FALSE
