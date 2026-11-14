@@ -1,0 +1,24 @@
+sample	geo_accession	tissue	genotype	replicate_label	age	sex	pairing
+10mo_skM_WT_1	GSM3968592	skM	WT	1	8-10 months	not_reported	not_assumed
+10mo_skM_WT_2	GSM3968593	skM	WT	2	8-10 months	not_reported	not_assumed
+10mo_skM_WT_3	GSM3968594	skM	WT	3	8-10 months	not_reported	not_assumed
+10mo_skM_WT_4	GSM3968595	skM	WT	4	8-10 months	not_reported	not_assumed
+10mo_skM_HL1002P_1	GSM3968596	skM	HL1002P	1	8-10 months	not_reported	not_assumed
+10mo_skM_HL1002P_2	GSM3968597	skM	HL1002P	2	8-10 months	not_reported	not_assumed
+10mo_skM_HL1002P_3	GSM3968598	skM	HL1002P	3	8-10 months	not_reported	not_assumed
+10mo_skM_HL1002P_4	GSM3968599	skM	HL1002P	4	8-10 months	not_reported	not_assumed
+10mo_skM_HH_1	GSM3968600	skM	HH	1	8-10 months	not_reported	not_assumed
+10mo_skM_HH_2	GSM3968601	skM	HH	2	8-10 months	not_reported	not_assumed
+10mo_skM_HH_3	GSM3968602	skM	HH	3	8-10 months	not_reported	not_assumed
+10mo_fat_WT_1	GSM3968603	fat	WT	1	8-10 months	not_reported	not_assumed
+10mo_fat_WT_2	GSM3968604	fat	WT	2	8-10 months	not_reported	not_assumed
+10mo_fat_WT_3	GSM3968605	fat	WT	3	8-10 months	not_reported	not_assumed
+10mo_fat_WT_4	GSM3968606	fat	WT	4	8-10 months	not_reported	not_assumed
+10mo_fat_HL1002P_1	GSM3968607	fat	HL1002P	1	8-10 months	not_reported	not_assumed
+10mo_fat_HL1002P_2	GSM3968608	fat	HL1002P	2	8-10 months	not_reported	not_assumed
+10mo_fat_HL1002P_3	GSM3968609	fat	HL1002P	3	8-10 months	not_reported	not_assumed
+10mo_fat_HL1002P_4	GSM3968610	fat	HL1002P	4	8-10 months	not_reported	not_assumed
+10mo_fat_HH_1	GSM3968611	fat	HH	1	8-10 months	not_reported	not_assumed
+10mo_fat_HH_2	GSM3968612	fat	HH	2	8-10 months	not_reported	not_assumed
+10mo_fat_HH_3	GSM3968613	fat	HH	3	8-10 months	not_reported	not_assumed
+10mo_fat_HH_4	GSM3968614	fat	HH	4	8-10 months	not_reported	not_assumed

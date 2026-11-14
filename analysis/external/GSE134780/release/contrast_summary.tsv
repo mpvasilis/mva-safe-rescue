@@ -1,0 +1,7 @@
+tissue	contrast	n_numerator	n_denominator	genes_tested	converged_genes	supported_genes
+skM	HL1002P_minus_WT	4	4	14660	14660	320
+skM	HH_minus_WT	3	4	14660	14660	1029
+skM	HL1002P_minus_HH	4	3	14660	14660	54
+fat	HL1002P_minus_WT	4	4	16569	16569	7575
+fat	HH_minus_WT	4	4	16569	16569	6299
+fat	HL1002P_minus_HH	4	4	16569	16569	25

@@ -1,0 +1,15 @@
+{
+  "dataset": "GSE134780",
+  "analysis_date": "2026-09-09",
+  "samples": 23,
+  "panel_genes": ["Bub1b", "Hsf1", "Hspa1a", "Hspa1b", "Hspa8", "Hspd1", "Hspe1", "Crls1", "Taz", "Ppargc1a", "Sod2", "Gpx1", "Cdkn2a", "Cdkn1a"],
+  "configured_panel_tests": 84,
+  "supported_panel_tests": 17,
+  "input_sha256": "f12a73805eb3aaf95d666e78756def647a11e95e37bd007dda580bc08ec77cba",
+  "protocol_sha256": "543a454cfa16fb9397c905640ac00e61b20597f6afafadf03e8c5e84d6da2ead",
+  "r_version": "4.6.1",
+  "DESeq2_version": "1.52.0",
+  "warning_count": 0,
+  "wall_seconds": 78.13,
+  "claims": "Independent mouse allele/tissue expression context; no drug response, human replication, clinical inference, or rescue of fly null."
+}
