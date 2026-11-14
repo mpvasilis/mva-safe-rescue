@@ -1,0 +1,13 @@
+component	role	version
+R	runtime	R version 4.6.1 (2026-06-24 ucrt)
+Bioconductor	biostatistics release	3.23
+BiocManager	Bioconductor release resolver	1.30.27
+digest	SHA-256 implementation	0.6.39
+fs	release symlink and Windows reparse-point detection	2.1.0
+jsonlite	JSON serialization	2.0.0
+ggplot2	figure generation	4.0.3
+DESeq2	gene-level negative-binomial modeling	1.52.0
+roastgsa	competitive rotation gene-set testing	1.10.0
+SummarizedExperiment	VST assay extraction	1.42.0
+BiocParallel	explicit serial execution registration	1.46.0
+limma	key roastgsa statistical dependency	3.68.4

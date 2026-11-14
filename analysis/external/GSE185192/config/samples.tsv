@@ -1,0 +1,14 @@
+sample_order	accession	lineage	condition	replicate	priority_role	expected_cell_type	expected_strain	expected_treatment	expected_cell_line	count_file	soft_file
+1	GSM5617616	iPSC	Iso-E	1	lineage_control	Induced Pluripotent Stem Cells	Control	untreated	AG05397	GSM5617616_iPSC_RNA_seq_IsoE_Rep1_HTSeq_RawCounts.txt.gz	GSM5617616.soft.txt
+2	GSM5617617	iPSC	Iso-E	2	lineage_control	Induced Pluripotent Stem Cells	Control	untreated	AG05397	GSM5617617_iPSC_RNA_seq_IsoE_Rep2_HTSeq_RawCounts.txt.gz	GSM5617617.soft.txt
+3	GSM5617618	iPSC	Iso-E	3	lineage_control	Induced Pluripotent Stem Cells	Control	untreated	AG05397	GSM5617618_iPSC_RNA_seq_IsoE_Rep3_HTSeq_RawCounts.txt.gz	GSM5617618.soft.txt
+4	GSM5617619	iPSC	Iso-T	1	lineage_control	Induced Pluripotent Stem Cells	Down syndrome	untreated	AG05397	GSM5617619_iPSC_RNA_seq_IsoT_Rep1_HTSeq_RawCounts.txt.gz	GSM5617619.soft.txt
+5	GSM5617620	iPSC	Iso-T	2	lineage_control	Induced Pluripotent Stem Cells	Down syndrome	untreated	AG05397	GSM5617620_iPSC_RNA_seq_IsoT_Rep2_HTSeq_RawCounts.txt.gz	GSM5617620.soft.txt
+6	GSM5617621	iPSC	Iso-T	3	lineage_control	Induced Pluripotent Stem Cells	Down syndrome	untreated	AG05397	GSM5617621_iPSC_RNA_seq_IsoT_Rep3_HTSeq_RawCounts.txt.gz	GSM5617621.soft.txt
+7	GSM5617622	NPC	Iso-E	1	priority	Neural Progenitor Cells	Control	untreated	AG05397	GSM5617622_NPC_RNA_seq_IsoE_Rep1_HTSeq_RawCounts.txt.gz	GSM5617622.soft.txt
+8	GSM5617623	NPC	Iso-E	2	priority	Neural Progenitor Cells	Control	untreated	AG05397	GSM5617623_NPC_RNA_seq_IsoE_Rep2_HTSeq_RawCounts.txt.gz	GSM5617623.soft.txt
+9	GSM5617624	NPC	Iso-E	3	priority	Neural Progenitor Cells	Control	untreated	AG05397	GSM5617624_NPC_RNA_seq_IsoE_Rep3_HTSeq_RawCounts.txt.gz	GSM5617624.soft.txt
+10	GSM5617625	NPC	Iso-T	1	priority	Neural Progenitor Cells	Down syndrome	untreated	AG05397	GSM5617625_NPC_RNA_seq_IsoT_Rep1_HTSeq_RawCounts.txt.gz	GSM5617625.soft.txt
+11	GSM5617626	NPC	Iso-T	2	priority	Neural Progenitor Cells	Down syndrome	untreated	AG05397	GSM5617626_NPC_RNA_seq_IsoT_Rep2_HTSeq_RawCounts.txt.gz	GSM5617626.soft.txt
+12	GSM5617627	NPC	Iso-T	3	priority	Neural Progenitor Cells	Down syndrome	untreated	AG05397	GSM5617627_NPC_RNA_seq_IsoT_Rep3_HTSeq_RawCounts.txt.gz	GSM5617627.soft.txt
+

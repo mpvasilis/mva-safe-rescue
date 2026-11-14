@@ -1,0 +1,4 @@
+kind	usage_note
+count	Public GEO submitter-provided processed HTSeq counts; retrieve from NCBI, do not redistribute from this repository, and cite GSE185192 and the primary publication.
+soft	Public GEO sample metadata used only to enforce sample eligibility; cite GSE185192 and follow NCBI usage policies.
+reference	Public annotation reference used for reproducible gene-to-chromosome or Gene Ontology mapping; retain source attribution and review upstream terms before redistribution.
