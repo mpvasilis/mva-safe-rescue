@@ -1,0 +1,29 @@
+{
+  "proband_id": "SYNTHETIC_LOCAL_BUILD",
+  "calibration": "synthetic_only",
+  "candidates": [
+    {
+      "variants": [
+        {"chrom": "chr12", "pos": 121212, "ref": "A", "alt": "T"}
+      ],
+      "raw_epcr": 0.91,
+      "finding_type": "primary",
+      "notes": "SYNTHETIC ONLY",
+      "read_validated": true,
+      "frequency_status": "known",
+      "phase": "not_applicable"
+    },
+    {
+      "variants": [
+        {"chrom": "chrX", "pos": 232323, "ref": "G", "alt": "C"},
+        {"chrom": "chr3", "pos": 343434, "ref": "T", "alt": "A"}
+      ],
+      "raw_epcr": 0.73,
+      "finding_type": "secondary",
+      "notes": "",
+      "read_validated": true,
+      "frequency_status": "known",
+      "phase": "confirmed_trans"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "SYNTHETIC_PROBAND_SINGLE": [
+    {"chrom": "chr1", "pos": 101, "ref": "A", "alt": "T"}
+  ],
+  "SYNTHETIC_PROBAND_COMPOUND": [
+    {"chrom": "chr2", "pos": 202, "ref": "G", "alt": "C"},
+    {"chrom": "chr3", "pos": 303, "ref": "T", "alt": "A"}
+  ]
+}

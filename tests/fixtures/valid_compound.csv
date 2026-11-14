@@ -1,0 +1,4 @@
+proband_id,chrom_1,pos_1,ref_1,alt_1,chrom_2,pos_2,ref_2,alt_2,epcr,finding_type,notes
+SYNTHETIC_PROBAND_COMPOUND,chr4,404,C,G,,,,,0.99,primary,SYNTHETIC DECOY
+SYNTHETIC_PROBAND_COMPOUND,chr2,202,G,C,chr3,303,T,A,0.90,primary,SYNTHETIC COMPOUND
+SYNTHETIC_PROBAND_COMPOUND,chr5,505,N,A,,,,,0.50,secondary,SYNTHETIC DECOY
