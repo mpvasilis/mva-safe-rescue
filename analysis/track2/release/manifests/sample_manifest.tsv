@@ -1,0 +1,22 @@
+dataset	sample_id	gsm	batch	condition	genotype	age_days_ael	temperature_c	sex	tissue	brains_per_library	paired_group	contrast_eligible	scope
+GSE290206	0916_2024	GSM8808448	4	control	w; worniu-gal4, UAS-gfp-i	4	29	female	whole brain	3	batch4	TRUE	primary
+GSE290206	0917_2024	GSM8808449	4	CIN	w; worniu-gal4, UAS-bub3-i	4	29	female	whole brain	3	batch4	TRUE	primary
+GSE290206	0933_2024	GSM8808450	5	control	w; worniu-gal4, UAS-gfp-i	4	29	female	whole brain	3	batch5	TRUE	primary
+GSE290206	0934_2024	GSM8808451	5	CIN	w; worniu-gal4, UAS-bub3-i	4	29	female	whole brain	3	batch5	TRUE	primary
+GSE290206	1224_2024	GSM8808452	6	control	w; worniu-gal4, UAS-gfp-i	4	29	female	whole brain	3	batch6	TRUE	primary
+GSE290206	1225_2024	GSM8808453	6	CIN	w; worniu-gal4, UAS-bub3-i	4	29	female	whole brain	3	batch6	TRUE	primary
+GSE301548	0918_2024	GSM9085034	4	ORE	Oregon		25	female	whole brain	3	batch4	FALSE	exploratory_adversarial
+GSE301548	0919_2024	GSM9085035	4	CDXY	C(1)DX/Y	5	25	female	whole brain	3	batch4	TRUE	exploratory_adversarial
+GSE301548	0920_2024	GSM9085036	4	CDXX	C(1)DX/X	8	25	female	whole brain	3	batch4	TRUE	exploratory_adversarial
+GSE301548	0921_2024	GSM9085037	4	C2L	C(2L)SH1	5	25	female	whole brain	3	batch4	TRUE	exploratory_adversarial
+GSE301548	0922_2024	GSM9085038	4	T2L	C(2L)SH1/+	8	25	female	whole brain	3	batch4	TRUE	exploratory_adversarial
+GSE301548	0935_2024	GSM9085039	5	ORE	Oregon		25	female	whole brain	3	batch5	FALSE	exploratory_adversarial
+GSE301548	0936_2024	GSM9085040	5	CDXY	C(1)DX/Y	5	25	female	whole brain	3	batch5	TRUE	exploratory_adversarial
+GSE301548	0937_2024	GSM9085041	5	CDXX	C(1)DX/X	8	25	female	whole brain	3	batch5	TRUE	exploratory_adversarial
+GSE301548	0938_2024	GSM9085042	5	C2L	C(2L)SH1	5	25	female	whole brain	3	batch5	TRUE	exploratory_adversarial
+GSE301548	0939_2024	GSM9085043	5	T2L	C(2L)SH1/+	8	25	female	whole brain	3	batch5	TRUE	exploratory_adversarial
+GSE301548	1209_2024	GSM9085044	6	ORE	Oregon		25	female	whole brain	3	batch6	FALSE	exploratory_adversarial
+GSE301548	1210_2024	GSM9085045	6	C2L	C(2L)SH1	5	25	female	whole brain	3	batch6	TRUE	exploratory_adversarial
+GSE301548	1211_2024	GSM9085046	6	T2L	C(2L)SH1/+	8	25	female	whole brain	3	batch6	TRUE	exploratory_adversarial
+GSE301548	1212_2024	GSM9085047	6	CDXY	C(1)DX/Y	5	25	female	whole brain	3	batch6	TRUE	exploratory_adversarial
+GSE301548	1213_2024	GSM9085048	6	CDXX	C(1)DX/X	8	25	female	whole brain	3	batch6	TRUE	exploratory_adversarial

@@ -1,0 +1,16 @@
+component_type	component	version	role
+runtime	R	4.6.1	analysis runtime
+runtime	Bioconductor	3.23	analysis package ecosystem
+R_package	targets	1.12.0	pipeline orchestration
+R_package	testthat	3.3.2	focused validation tests
+R_package	readxl	1.5.0	Excel count-matrix import
+R_package	digest	0.6.39	SHA-256 checksums
+R_package	jsonlite	2.0.0	machine-readable result serialization
+R_package	ggplot2	4.0.3	figures
+R_package	data.table	1.18.4	declared tabular-data dependency
+R_package	DESeq2	1.52.0	count normalization and differential expression
+R_package	apeglm	1.34.0	log2-fold-change shrinkage
+R_package	roastgsa	1.10.0	competitive maxmean rotation tests
+R_package	SummarizedExperiment	1.42.0	VST assay extraction
+R_package	limma	3.68.4	roastgsa analysis dependency
+R_package	BiocManager	1.30.27	Bioconductor version management

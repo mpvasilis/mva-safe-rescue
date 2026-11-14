@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "seed": 20260826,
+  "primary": {
+    "dataset": "GSE290206",
+    "source_sha256": "8ca3791e8a69284403f41698ef9af3fa9efbe47b3978c6bcacd906f282a747e9",
+    "source_dimensions": {
+      "genes": 14150,
+      "libraries": 6
+    },
+    "filter": {
+      "min_count": 10,
+      "min_samples": 3
+    },
+    "retained_genes": 10132,
+    "library_totals": [
+      {
+        "dataset": "GSE290206",
+        "sample_id": "0916_2024",
+        "raw_library_total": 24700290,
+        "retained_library_total": 24685959,
+        "retained_fraction": 0.99941980438286349
+      },
+      {
+        "dataset": "GSE290206",
+        "sample_id": "0917_2024",
+        "raw_library_total": 25666856,
+        "retained_library_total": 25624756,
+        "retained_fraction": 0.99835975235922936
+      },
+      {
+        "dataset": "GSE290206",
+        "sample_id": "0933_2024",
+        "raw_library_total": 26292208,
+        "retained_library_total": 26275273,
+        "retained_fraction": 0.99935589281813075
+      },
+      {
+        "dataset": "GSE290206",
+        "sample_id": "0934_2024",
+        "raw_library_total": 24668180,
+        "retained_library_total": 24656279,
+        "retained_fraction": 0.99951755662557995
+      },
+      {
+        "dataset": "GSE290206",
+        "sample_id": "1224_2024",
+        "raw_library_total": 25278697,
+        "retained_library_total": 25269185,
+        "retained_fraction": 0.99962371478245104
+      },
+      {
+        "dataset": "GSE290206",
+        "sample_id": "1225_2024",
+        "raw_library_total": 26249911,
+        "retained_library_total": 26238567,
+        "retained_fraction": 0.99956784615384031
+      }
+    ],
+    "pca": [
+      {
+        "sample_id": "0916_2024",
+        "PC1": -0.39715609725933665,
+        "PC2": 21.765495428965878,
+        "PC1_variance": 0.39017913435746915,
+        "PC2_variance": 0.24505958619086413,
+        "batch": "4",
+        "condition": "control"
+      },
+      {
+        "sample_id": "0917_2024",
+        "PC1": -27.373460229426094,
+        "PC2": 2.0105063531300709,
+        "PC1_variance": 0.39017913435746915,
+        "PC2_variance": 0.24505958619086413,
+        "batch": "4",
+        "condition": "CIN"
+      },
+      {
+        "sample_id": "0933_2024",
+        "PC1": -5.1187114626431143,
+        "PC2": -20.297725454037806,
+        "PC1_variance": 0.39017913435746915,
+        "PC2_variance": 0.24505958619086413,
+        "batch": "5",
+        "condition": "control"
+      },
+      {
+        "sample_id": "0934_2024",
+        "PC1": 24.847202971938419,
+        "PC2": -1.2542304473186914,
+        "PC1_variance": 0.39017913435746915,
+        "PC2_variance": 0.24505958619086413,
+        "batch": "5",
+        "condition": "CIN"
+      },
+      {
+        "sample_id": "1224_2024",
+        "PC1": 4.0875597522574418,
+        "PC2": -1.9559607496599429,
+        "PC1_variance": 0.39017913435746915,
+        "PC2_variance": 0.24505958619086413,
+        "batch": "6",
+        "condition": "control"
+      },
+      {
+        "sample_id": "1225_2024",
+        "PC1": 3.9545650651327939,
+        "PC2": -0.26808513107941101,
+        "PC1_variance": 0.39017913435746915,
+        "PC2_variance": 0.24505958619086413,
+        "batch": "6",
+        "condition": "CIN"
+      }
+    ]
+  },
+  "exploratory_adversarial": {
+    "dataset": "GSE301548",
+    "warning": "GSE301548 genotype is perfectly confounded with chronological age; outputs estimate combined age+genotype contrasts only.",
+    "source_sha256": "d35eb3c42787a2137bfe453a32b2fc9772e602eeee69a2ca46e154be92993b18",
+    "source_dimensions": {
+      "genes": 8990,
+      "libraries": 15
+    },
+    "filter": {
+      "min_count": 10,
+      "min_samples": 3
+    },
+    "retained_genes": 8981,
+    "library_totals": [
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0918_2024",
+        "raw_library_total": 24867593,
+        "retained_library_total": 24867568,
+        "retained_fraction": 0.99999899467552011
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0919_2024",
+        "raw_library_total": 24265150,
+        "retained_library_total": 24265116,
+        "retained_fraction": 0.99999859881352471
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0920_2024",
+        "raw_library_total": 26423579,
+        "retained_library_total": 26423557,
+        "retained_fraction": 0.99999916741028916
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0921_2024",
+        "raw_library_total": 25753695,
+        "retained_library_total": 25753648,
+        "retained_fraction": 0.99999817501915744
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0922_2024",
+        "raw_library_total": 24668993,
+        "retained_library_total": 24668970,
+        "retained_fraction": 0.99999906765549773
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0935_2024",
+        "raw_library_total": 26719078,
+        "retained_library_total": 26719068,
+        "retained_fraction": 0.99999962573558865
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0936_2024",
+        "raw_library_total": 25135136,
+        "retained_library_total": 25135113,
+        "retained_fraction": 0.99999908494626799
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0937_2024",
+        "raw_library_total": 22949943,
+        "retained_library_total": 22949414,
+        "retained_fraction": 0.9999769498338188
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0938_2024",
+        "raw_library_total": 26328712,
+        "retained_library_total": 26328286,
+        "retained_fraction": 0.99998381994531294
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "0939_2024",
+        "raw_library_total": 27142240,
+        "retained_library_total": 27133457,
+        "retained_fraction": 0.99967640843202332
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "1209_2024",
+        "raw_library_total": 26701430,
+        "retained_library_total": 26701413,
+        "retained_fraction": 0.99999936332997896
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "1210_2024",
+        "raw_library_total": 24067221,
+        "retained_library_total": 24067203,
+        "retained_fraction": 0.99999925209478902
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "1211_2024",
+        "raw_library_total": 23521025,
+        "retained_library_total": 23521013,
+        "retained_fraction": 0.99999948981815201
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "1212_2024",
+        "raw_library_total": 24113539,
+        "retained_library_total": 24113517,
+        "retained_fraction": 0.99999908764947365
+      },
+      {
+        "dataset": "GSE301548",
+        "sample_id": "1213_2024",
+        "raw_library_total": 28272926,
+        "retained_library_total": 28272423,
+        "retained_fraction": 0.99998220912826641
+      }
+    ]
+  }
+}

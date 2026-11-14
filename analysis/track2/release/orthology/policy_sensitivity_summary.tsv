@@ -1,0 +1,2 @@
+primary_policy	sensitivity_policy	primary_human_genes	sensitivity_human_genes	shared_human_genes	shared_score_spearman	shared_score_sign_concordance	top_absolute_score_n	top_absolute_score_overlap	interpretation
+DIOPT>=5_max_score_co-best_ties	DIOPT>=3_within-fly_DIOPT_weighted	6808	11861	6808	0.932381102666473	0.946092831962397	100	17	Global signed scores are stable across policies, but top human-gene prioritization is mapping-dependent; no top-gene nominee is treated as robust without dual-policy review.

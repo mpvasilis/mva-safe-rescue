@@ -1,0 +1,4 @@
+contrast_id	dataset	numerator	denominator	batches	design	scope	estimand	size_factor_control	ranking_eligible
+CIN_vs_control	GSE290206	CIN	control	4|5|6	~ batch + condition	primary	SAC-depletion/CIN pathway effect in 96h female whole brain	all_retained_genes	TRUE
+CDXX_vs_CDXY	GSE301548	CDXX	CDXY	4|5|6	~ batch + condition	exploratory_adversarial	combined chronological-age (8d vs 5d) plus X-genotype contrast	non_X_genes	FALSE
+T2L_vs_C2L	GSE301548	T2L	C2L	4|5|6	~ batch + condition	exploratory_adversarial	combined chronological-age (8d vs 5d) plus 2L-genotype contrast	outside_2L_genes	FALSE

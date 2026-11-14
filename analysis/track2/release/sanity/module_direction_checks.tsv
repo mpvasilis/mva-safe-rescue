@@ -1,0 +1,3 @@
+module_id	expected_direction	est	nes	pval	module_qvalue	observed_direction	passes_direction_check
+mitochondrial_energy	down	-0.890302971739484	-1.0209990577041	0.3965	0.734263636363636	down	TRUE
+ribosome_RNA	down	-0.578897710912849	-1.79033997030102	0.0341	0.198033333333333	down	TRUE

@@ -1,0 +1,14 @@
+module_id	nes_include_IEA	module_qvalue_include_IEA	nes_exclude_IEA	module_qvalue_exclude_IEA	direction_flip	include_IEA_supported_q_le_0_10	exclude_IEA_supported_q_le_0_10	interpretation
+SAC	-0.471432523767472	0.734263636363636	-0.471432523767472	0.80665	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+chromosome_segregation	-0.416416773206202	0.734263636363636	-0.416416773206202	0.80665	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+mitochondrial_energy	-1.0209990577041	0.734263636363636	-1.030678963898	0.80665	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+proteostasis_stress	1.49738178966921	0.547625	1.65651009685257	0.409825	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+folding_proteasome	-1.17840689026124	0.69966	1.42517172433484	0.43238	TRUE	FALSE	FALSE	Descriptive annotation-policy direction instability; both policies are null at BH q<=0.10.
+autophagy_mitophagy	1.79026775744817	0.198033333333333	1.79070087735459	0.2275	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+oxidative_stress	0.422585427167074	0.771658333333333	0.29768146620727	0.917209090909091	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+oxidant_detox	-0.679918071307144	0.734263636363636	NA	NA	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+ribosome_RNA	-1.79033997030102	0.198033333333333	-1.78294643181156	0.2275	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+neural_stemness	NA	NA	NA	NA	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+cell_cycle_proliferation	-0.499470981588565	0.734263636363636	-0.509097792427721	0.80665	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+DNA_damage_repair	-0.648888498411315	0.734263636363636	-0.646732079301568	0.80665	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.
+apoptosis	1.57299339718055	0.198033333333333	1.58001856003731	0.2275	FALSE	FALSE	FALSE	No direction reversal across evaluable annotation policies.

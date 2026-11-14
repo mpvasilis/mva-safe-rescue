@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "seed": 20260826,
+  "primary_dataset": "GSE290206",
+  "primary_interpretation": "SAC-depletion/CIN pathway evidence; not BUB1B-specific",
+  "primary_candidate_count": 179,
+  "module_lock_provenance": "The 13-module registry was prespecified and analysis-locked before the authoritative run. No immutable external preregistration timestamp exists.",
+  "immutable_external_preregistration_timestamp": null,
+  "preregistered_key_compatibility_note": "Historical filenames and JSON keys containing 'preregistered' are retained only for compatibility and do not assert external preregistration.",
+  "preregistered_modules_configured": 13,
+  "preregistered_modules_evaluable_primary_include_IEA": 12,
+  "preregistered_modules_evaluable_sensitivity_exclude_IEA": 11,
+  "module_multiple_testing": "BH is conservatively computed with n=13 configured modules, including modules unevaluable at minsize=10.",
+  "preregistered_modules_q_le_0_10": 0,
+  "module_nomination_supported": false,
+  "primary_module_result_branch": "null_module_support",
+  "preregistered_module_result": "No evaluable primary module reaches BH q<=0.10 (12 evaluable; 13 configured). Nominal rotation p-values are not treated as statistically supported module enrichment.",
+  "transcriptomic_nomination_conclusion": "Transcriptomics does not validate a specific rescue candidate. Nominal module p-values, gene-direction stability, exploratory contrasts, and orthology cannot override this branch.",
+  "leave_one_batch_out_downgrade_required": true,
+  "leave_one_batch_out_nomination_decision_modules": "mitochondrial_energy|proteostasis_stress|folding_proteasome|autophagy_mitophagy|oxidative_stress|oxidant_detox|ribosome_RNA",
+  "leave_one_batch_out_decision_set_provenance": "Post-primary implementation amendment dated 2026-08-26; fixed before module-level leave-one-batch sensitivity. The original analysis lock covers all 13 modules, not this subset; no immutable external preregistration timestamp exists.",
+  "leave_one_batch_out_full_null_to_supported_sensitivities": [
+    {
+      "module_id": "proteostasis_stress",
+      "omitted_batch": "5",
+      "full_module_qvalue": 0.54762500000000003,
+      "leave_one_out_module_qvalue": 0.0013000000000000002,
+      "interpretation": "Fragile leave-one-batch sensitivity only; it cannot override the full-analysis null."
+    }
+  ],
+  "leave_one_batch_out_fit_warning_count": 8,
+  "leave_one_batch_out_fit_warning_note": "Numerical fit warnings occurred and are retained verbatim by omitted batch in sensitivity/leave_one_batch_out_summary.tsv; no values were forced.",
+  "leave_one_batch_out_interpretation": "The diagnostic downgrade branch uses a post-primary implementation-amendment subset fixed before module leave-one-batch analysis; it is not part of the original 13-module analysis lock. Gene-level Spearman is diagnostic only. Stability does not supply statistical support for mitochondrial, proteostasis, or any other module enrichment. When the full module result is null, a reversal is descriptive instability evidence, not a second inferential rejection or statistically meaningful module evidence.",
+  "normalized_direction_gate_sensitivity": {
+    "genes_evaluated": 10132,
+    "genes_with_different_agreement_count": 1859,
+    "locked_raw_gate_candidates": 179,
+    "normalized_gate_candidates": 179,
+    "overlap_candidates": 179,
+    "locked_raw_only_candidates": 0,
+    "normalized_only_candidates": 0,
+    "primary_gate": "raw_count_log2_ratios_2_of_3_locked",
+    "sensitivity_gate": "DESeq2_normalized_count_log2_ratios_2_of_3_result_neutral",
+    "interpretation": "Normalized-direction sensitivity does not change any primary candidate call."
+  },
+  "orthology_policy_sensitivity": {
+    "primary_policy": "DIOPT>=5_max_score_co-best_ties",
+    "sensitivity_policy": "DIOPT>=3_within-fly_DIOPT_weighted",
+    "primary_human_genes": 6808,
+    "sensitivity_human_genes": 11861,
+    "shared_human_genes": 6808,
+    "shared_score_spearman": 0.93238110266647289,
+    "shared_score_sign_concordance": 0.94609283196239713,
+    "top_absolute_score_n": 100,
+    "top_absolute_score_overlap": 17,
+    "interpretation": "Global signed scores are stable across policies, but top human-gene prioritization is mapping-dependent; no top-gene nominee is treated as robust without dual-policy review."
+  },
+  "annotation_policy_direction_flips": [
+    {
+      "module_id": "folding_proteasome",
+      "include_IEA_nes": -1.1784068902612383,
+      "include_IEA_module_qvalue": 0.69966000000000006,
+      "exclude_IEA_nes": 1.425171724334839,
+      "exclude_IEA_module_qvalue": 0.43238000000000004,
+      "interpretation": "Descriptive annotation-policy direction instability; both policies are null at BH q<=0.10."
+    }
+  ],
+  "authoritative_module_multiplicity_column": "module_qvalue (BH with n=13 configured modules). roastgsa_adj_pvalue_evaluable_only is retained for transparency and is not used for decisions.",
+  "limitations": ["Six whole-brain libraries from three batch pairs; tissue composition can contribute to observed effects.", "SAC-depletion/CIN pathway evidence is not BUB1B-specific.", "GSE301548 is perfectly confounded by chronological age and genotype and is exploratory only."],
+  "claim_boundary": "No clinical or treatment claim is made. Named candidates are prospective preclinical benchmarks only; none is transcriptomically validated or preferred, and none is used to manufacture transcriptomic evidence."
+}
