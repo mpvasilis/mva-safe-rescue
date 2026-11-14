@@ -1,0 +1,364 @@
+{
+  "schema": "secure-wgs-public-workflow-contract/v1",
+  "contract_id": "track1_secure_wgs_public_reproducibility",
+  "source_roles": [
+    "workflow_contract",
+    "protected_read_inputs",
+    "reference_resource",
+    "phenotype_feature_set",
+    "execution_approval_record",
+    "scientific_release_policy"
+  ],
+  "terminal_roles": [
+    "validated_track1_submission",
+    "reproducibility_receipt_inventory",
+    "cleanup_verification_record"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "stage_id": "contract_preflight",
+      "purpose": "Validate the public orchestration contract and prove its role graph without biological inputs.",
+      "input_roles": [
+        "workflow_contract"
+      ],
+      "output_roles": [
+        "validated_workflow_contract",
+        "contract_validation_receipt"
+      ],
+      "execution_class": "public-local",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Python standard library",
+          "version": "3.10 or newer",
+          "container": "none",
+          "evidence": "Repository smoke validator and focused tests"
+        }
+      ],
+      "public_entrypoint": "analysis/secure_wgs/synthetic_contract_smoke.py",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "The schema, ordered stages, role graph, privacy boundary, and repository entrypoints must validate.",
+        "The synthetic run creates role markers only and never reads biological data."
+      ],
+      "fail_closed_conditions": [
+        "Reject unknown fields, duplicate keys, missing roles, disconnected stages, or unsafe paths.",
+        "Reject a contract whose public entrypoint resolves outside the repository."
+      ],
+      "scalability_notes": "Constant-size metadata validation; independent of protected input volume.",
+      "evidence_receipt_role": "contract_validation_receipt"
+    },
+    {
+      "order": 2,
+      "stage_id": "protected_input_manifest",
+      "purpose": "Pair protected read inputs under generic internal roles and produce a sealed transfer manifest.",
+      "input_roles": [
+        "validated_workflow_contract",
+        "protected_read_inputs",
+        "execution_approval_record"
+      ],
+      "output_roles": [
+        "sealed_input_manifest",
+        "input_manifest_receipt"
+      ],
+      "execution_class": "public-entrypoint-protected-inputs",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Secure WGS orchestrator",
+          "version": "repository revision",
+          "container": "none",
+          "evidence": "Repository implementation and secure WGS regression tests"
+        }
+      ],
+      "public_entrypoint": "analysis/secure_wgs/orchestrator.py",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "Inputs must form complete read pairs and remain outside the public repository.",
+        "The manifest uses generic roles and records integrity digests without public source names."
+      ],
+      "fail_closed_conditions": [
+        "Stop on incomplete pairs, unsupported metadata, missing approval, unsafe destinations, or absent integrity evidence.",
+        "Never emit source names, credentials, or protected paths to public output."
+      ],
+      "scalability_notes": "Metadata and digest work scales linearly with file count; protected bytes are not copied into the repository.",
+      "evidence_receipt_role": "input_manifest_receipt"
+    },
+    {
+      "order": 3,
+      "stage_id": "secure_transfer",
+      "purpose": "Resolve a short-lived private transfer plan into verified generic inputs inside an approved execution boundary.",
+      "input_roles": [
+        "sealed_input_manifest",
+        "execution_approval_record"
+      ],
+      "output_roles": [
+        "verified_secure_inputs",
+        "transfer_integrity_receipt"
+      ],
+      "execution_class": "public-entrypoint-external-credentials",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Signed-plan fetcher",
+          "version": "repository revision",
+          "container": "operator-approved secure runtime",
+          "evidence": "Repository implementation with expiry, redirect, path, and digest checks"
+        }
+      ],
+      "public_entrypoint": "analysis/secure_wgs/remote/fetch_signed_plan.py",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "The transfer plan must be signed, unexpired, integrity-pinned, and stored outside the repository.",
+        "Downloaded objects must match the manifest roles and expected digests."
+      ],
+      "fail_closed_conditions": [
+        "Stop on expired plans, unsafe redirects, unexpected names, digest mismatch, symlinks, or existing destinations.",
+        "Do not print transfer material or response bodies."
+      ],
+      "scalability_notes": "Transfers stream per object and can use provider-side concurrency only after integrity and cost controls are approved.",
+      "evidence_receipt_role": "transfer_integrity_receipt"
+    },
+    {
+      "order": 4,
+      "stage_id": "alignment_and_small_variants",
+      "purpose": "Perform accelerated alignment and short-variant calling in a pinned, approved containerized environment.",
+      "input_roles": [
+        "verified_secure_inputs",
+        "reference_resource",
+        "execution_approval_record"
+      ],
+      "output_roles": [
+        "aligned_read_evidence",
+        "small_variant_calls",
+        "primary_calling_receipt"
+      ],
+      "execution_class": "containerized-heavyweight-protected",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Parabricks",
+          "version": "4.7.1-1",
+          "container": "digest must be supplied from an independently reviewed manifest",
+          "evidence": "Public runner pins the release and fails until an approved digest is installed"
+        },
+        {
+          "tool": "DeepVariant model",
+          "version": "1.9-compatible",
+          "container": "shipped with the approved Parabricks image",
+          "evidence": "Compatibility is documented in the secure WGS method inventory"
+        }
+      ],
+      "public_entrypoint": "analysis/secure_wgs/remote/run_parabricks_deepvariant.sh",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "The operator must independently pin the container digest, reference identity, input manifest, and runtime approvals.",
+        "The runner must record generic quality and integrity receipts while protected outputs remain private."
+      ],
+      "fail_closed_conditions": [
+        "Stop when approval flags, image digest, reference identity, input integrity, runtime tools, or minimum compute checks fail.",
+        "Stop rather than downgrade to an unpinned image or unapproved execution host."
+      ],
+      "scalability_notes": "The accepted baseline is one high-memory accelerator with parallel host processing and fast ephemeral storage; cohort scaling is one isolated run per sample or a reviewed batch scheduler.",
+      "evidence_receipt_role": "primary_calling_receipt"
+    },
+    {
+      "order": 5,
+      "stage_id": "complementary_variant_and_phenotype_analysis",
+      "purpose": "Combine complementary variant classes with phenotype-aware prioritization under pinned scientific methods.",
+      "input_roles": [
+        "aligned_read_evidence",
+        "small_variant_calls",
+        "phenotype_feature_set",
+        "reference_resource",
+        "validated_workflow_contract"
+      ],
+      "output_roles": [
+        "cross_class_findings",
+        "phenotype_rankings",
+        "complementary_analysis_receipt"
+      ],
+      "execution_class": "documentation-only-external",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Structural and copy-number callers",
+          "version": "Manta 1.6; DELLY 2.3; CNVpytor 1.3.2",
+          "container": "operator-pinned external environments",
+          "evidence": "Versions and interpretation boundaries are documented in the secure WGS method inventory"
+        },
+        {
+          "tool": "Specialized variant analysis",
+          "version": "xTea 0.1.9; ExpansionHunter 5.0.0; GATK 4.7.0.0",
+          "container": "operator-pinned external environments",
+          "evidence": "Versions and analysis boundaries are documented in the secure WGS method inventory"
+        },
+        {
+          "tool": "Phenotype prioritization and phasing",
+          "version": "Exomiser 15.1.0; LIRICAL 2.4.1; WhatsHap 2.8",
+          "container": "operator-pinned external environments",
+          "evidence": "Versions and interpretation boundaries are documented in the secure WGS method inventory"
+        }
+      ],
+      "public_entrypoint": null,
+      "public_entrypoint_reason": "The accepted analysis combines several licensed, externally distributed, or heavyweight tools and protected evidence; no single sanitized end-to-end runner is present in this repository.",
+      "validation_contract": [
+        "Each lane must retain its pinned version, reference resources, parameters, and privacy-safe receipt.",
+        "Cross-caller agreement is technical corroboration, not independent biological confirmation."
+      ],
+      "fail_closed_conditions": [
+        "Do not substitute unavailable tools silently or merge incompatible representations.",
+        "Do not elevate a ranking or caller score into a clinical conclusion without human evidence review."
+      ],
+      "scalability_notes": "Independent lanes can run in parallel after the primary evidence is available; each lane remains separately pinned, resource-budgeted, and receipt-bound.",
+      "evidence_receipt_role": "complementary_analysis_receipt"
+    },
+    {
+      "order": 6,
+      "stage_id": "chromosome_research_screen",
+      "purpose": "Run an aggregate research screen from depth and frequency evidence without exporting per-site records.",
+      "input_roles": [
+        "aligned_read_evidence",
+        "small_variant_calls",
+        "reference_resource",
+        "validated_workflow_contract"
+      ],
+      "output_roles": [
+        "chromosome_screen_summary",
+        "chromosome_screen_receipt"
+      ],
+      "execution_class": "public-analyzer-heavyweight-inputs",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Aggregate chromosome screen",
+          "version": "repository revision",
+          "container": "none for the analyzer; pinned external tools for input preparation",
+          "evidence": "Synthetic regression tests cover neutral, signal, threshold, privacy, and fail-closed behavior"
+        },
+        {
+          "tool": "Input preparation tools",
+          "version": "samtools 1.13; bcftools 1.13; CNVpytor 1.3.2",
+          "container": "operator-pinned secure runtime",
+          "evidence": "Companion runner enforces versions and writes aggregate output only"
+        }
+      ],
+      "public_entrypoint": "analysis/secure_wgs/mosaic_aneuploidy_scan.py",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "The analyzer accepts only prepared aggregate-compatible roles inside the secure boundary.",
+        "Public evidence is limited to synthetic tests and privacy-safe aggregate receipts."
+      ],
+      "fail_closed_conditions": [
+        "Stop on malformed inputs, inconsistent contigs, missing controls, nonfinite values, unsafe paths, or threshold violations.",
+        "Never export per-site evidence from the protected execution boundary."
+      ],
+      "scalability_notes": "Preparation is parallelizable by chromosome; deterministic aggregation uses bounded summaries rather than retaining site-level public data.",
+      "evidence_receipt_role": "chromosome_screen_receipt"
+    },
+    {
+      "order": 7,
+      "stage_id": "evidence_reconciliation",
+      "purpose": "Reconcile caller evidence, phenotype rankings, and research screens under a human-controlled scientific release policy.",
+      "input_roles": [
+        "small_variant_calls",
+        "cross_class_findings",
+        "phenotype_rankings",
+        "chromosome_screen_summary",
+        "scientific_release_policy"
+      ],
+      "output_roles": [
+        "reconciled_candidate_evidence",
+        "reproducibility_receipt_inventory",
+        "reconciliation_receipt"
+      ],
+      "execution_class": "human-gated-protected",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Evidence reconciliation",
+          "version": "accepted Track 1 review policy",
+          "container": "not applicable",
+          "evidence": "Privacy-safe evidence receipts and frozen scientific review boundaries"
+        }
+      ],
+      "public_entrypoint": null,
+      "public_entrypoint_reason": "This step requires protected evidence inspection and accountable human judgment; publishing an automated replacement would overstate reproducibility and clinical certainty.",
+      "validation_contract": [
+        "Every retained statement must trace to a pinned lane receipt and the scientific cutoff.",
+        "Human review must preserve uncertainty, confirmation requirements, and non-diagnostic language."
+      ],
+      "fail_closed_conditions": [
+        "Stop when evidence lineage, scientific cutoff, privacy review, or human approval is absent.",
+        "Do not infer missing phase, segregation, mechanism, or clinical confirmation."
+      ],
+      "scalability_notes": "Automated aggregation reduces review volume, but accountable evidence reconciliation remains a bounded human bottleneck by design.",
+      "evidence_receipt_role": "reconciliation_receipt"
+    },
+    {
+      "order": 8,
+      "stage_id": "submission_validation",
+      "purpose": "Validate the Track 1 CSV structure and organizer-facing constraints before any upload.",
+      "input_roles": [
+        "reconciled_candidate_evidence",
+        "scientific_release_policy"
+      ],
+      "output_roles": [
+        "validated_track1_submission",
+        "submission_validation_receipt"
+      ],
+      "execution_class": "public-local",
+      "tool_container_version_evidence": [
+        {
+          "tool": "rare-mva Track 1 validator",
+          "version": "repository revision",
+          "container": "none",
+          "evidence": "Repository implementation and public validation tests"
+        }
+      ],
+      "public_entrypoint": "src/rare_mva/cli.py",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "The CSV schema, row semantics, grouping, identifiers, and size constraints must pass the public validator.",
+        "Validation proves format compliance only; it does not re-evaluate protected scientific evidence."
+      ],
+      "fail_closed_conditions": [
+        "Reject malformed, unexpected, privacy-unsafe, or policy-inconsistent submission content.",
+        "Validation never uploads or submits the file."
+      ],
+      "scalability_notes": "Streaming-sized local validation is negligible compared with WGS analysis and is suitable for repeated pre-submission checks.",
+      "evidence_receipt_role": "submission_validation_receipt"
+    },
+    {
+      "order": 9,
+      "stage_id": "cleanup_verification",
+      "purpose": "Verify that controlled paths and external compute resources are absent after authorized cleanup.",
+      "input_roles": [
+        "execution_approval_record",
+        "transfer_integrity_receipt",
+        "primary_calling_receipt",
+        "complementary_analysis_receipt",
+        "chromosome_screen_receipt"
+      ],
+      "output_roles": [
+        "cleanup_verification_record",
+        "cleanup_verification_receipt"
+      ],
+      "execution_class": "public-external-verifier",
+      "tool_container_version_evidence": [
+        {
+          "tool": "Secure WGS cleanup verifier",
+          "version": "repository revision",
+          "container": "none",
+          "evidence": "Repository implementation is non-destructive and passes only when all declared resources are absent"
+        }
+      ],
+      "public_entrypoint": "analysis/secure_wgs/cleanup_verify.py",
+      "public_entrypoint_reason": null,
+      "validation_contract": [
+        "All declared controlled paths and compute resources must be absent before a passing receipt is written.",
+        "The receipt remains private and contains no credentials or protected data."
+      ],
+      "fail_closed_conditions": [
+        "Return failure if any path or external resource remains, status is ambiguous, or the private receipt destination is unsafe.",
+        "The verifier never deletes resources and never treats an API error as proof of absence."
+      ],
+      "scalability_notes": "Verification cost scales with the small declared resource inventory, not with WGS byte volume.",
+      "evidence_receipt_role": "cleanup_verification_receipt"
+    }
+  ]
+}

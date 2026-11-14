@@ -1,0 +1,82 @@
+{
+  "schema_version": "secure-wgs-vast-retained-disk-inventory-preflight-owner-authorization/v1",
+  "authorization_state": "OWNER_INPUT_REQUIRED",
+  "purpose": "RETAINED_DISK_RECOVERY_INVENTORY_PREFLIGHT_ONLY",
+  "execution_binding": {
+    "permitted_lifecycle_action": "START_DESIGNATED_STOPPED_INSTANCE_RUN_READ_ONLY_RETAINED_DISK_INVENTORY_THEN_APPLY_SIGNED_DISPOSITION",
+    "preflight_plan_sha256": null
+  },
+  "host_binding": {
+    "provider": "VAST_AI",
+    "binding_type": "PRIVATE_HOST_BINDING_RECEIPT_SHA256",
+    "binding_receipt_sha256": null
+  },
+  "protected_data_scope": {
+    "approved_input_scope_receipt_sha256": null,
+    "existing_file_access": "READ_EXISTING_FILES_FOR_IDENTITY_SIZE_AND_SHA256_ONLY",
+    "write_existing_paths_authorized": false,
+    "network_egress_authorized": false,
+    "export_protected_content_authorized": false,
+    "scientific_analysis_authorized": false
+  },
+  "limits": {
+    "max_runtime_seconds": null,
+    "max_cost_usd_cents": null,
+    "one_lifecycle_attempt_only": true
+  },
+  "validity": {
+    "issued_at_utc": "",
+    "not_before_utc": "",
+    "expires_at_utc": ""
+  },
+  "output_policy": {
+    "namespace_mode": "NEW_ABSENT_NAMESPACE_ONLY",
+    "new_output_namespace": "",
+    "overwrite_authorized": false,
+    "content_policy": "GENERIC_METADATA_DIGESTS_AND_DISPOSITIONS_ONLY"
+  },
+  "failure_policy": {
+    "stop_on_any_error": true,
+    "stop_on_unaccounted_input": true,
+    "continue_to_heavy_workflow": false,
+    "partial_output_disposition": "SEAL_FAILED_RECEIPT_AND_STOP"
+  },
+  "post_preflight_disposition": {
+    "on_success": "",
+    "on_failure": ""
+  },
+  "inventory_obligation": {
+    "source_domain": "EVERY_RECORD_IN_THE_PINNED_PRIVATE_INPUT_SCOPE",
+    "record_id_policy": "SEQUENTIAL_GENERIC_IDS_WITH_NO_SOURCE_IDENTIFIERS",
+    "source_identity_policy": "NONZERO_SHA256_OF_PINNED_PRIVATE_SOURCE_IDENTITY_RECEIPT",
+    "allowed_dispositions": [
+      "INVENTORIED",
+      "EXPLICITLY_EXCLUDED",
+      "UNSUPPORTED",
+      "FAILED"
+    ],
+    "explicit_disposition_required": true,
+    "unique_record_id_required": true,
+    "no_silent_drop": true,
+    "accounting_equation": "source_count = inventoried + explicitly_excluded + unsupported + failed"
+  },
+  "downstream_authorizations": {
+    "vep_heavy_execution_authorized": false,
+    "xtea_heavy_execution_authorized": false,
+    "breadth_heavy_execution_authorized": false,
+    "prioritization_authorized": false,
+    "structural_integration_authorized": false,
+    "candidate_change_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "upload_authorized": false,
+    "diagnostic_claim_authorized": false
+  },
+  "owner_signature": {
+    "state": "NOT_SIGNED",
+    "signed_by": "",
+    "signed_at_utc": "",
+    "attestation": "",
+    "signature_verification_receipt_sha256": null
+  }
+}

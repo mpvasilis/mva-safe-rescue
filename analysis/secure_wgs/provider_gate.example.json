@@ -1,0 +1,20 @@
+{
+  "schema": "secure-wgs-provider-gate/v1",
+  "secure_cloud": false,
+  "datacenter_offer": false,
+  "processor_only": false,
+  "no_training_or_own_use": false,
+  "limited_operational_retention": false,
+  "deletion_certification_available": false,
+  "approved_for_genetic_health_data": false,
+  "vast_plan_tier": "REQUIRED_PRIVATE_REVIEW",
+  "vast_offer_id": "REQUIRED_PRIVATE_REVIEW",
+  "vast_machine_id": "REQUIRED_PRIVATE_REVIEW",
+  "reviewer": "REQUIRED_PRIVATE_REVIEW",
+  "approval_date": "REQUIRED_PRIVATE_REVIEW",
+  "parabricks_version": "4.7.1-1",
+  "parabricks_image_digest": "sha256:REPLACE_WITH_64_HEX_AFTER_NGC_VERIFICATION",
+  "reference_accession": "GCA_000001405.15",
+  "reference_archive_md5": "a08035b6a6e31780e96a34008ff21bd6"
+}
+

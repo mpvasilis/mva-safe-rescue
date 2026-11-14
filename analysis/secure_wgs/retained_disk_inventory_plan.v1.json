@@ -1,0 +1,54 @@
+{
+  "schema_version": "secure-wgs-retained-disk-inventory-plan/v1",
+  "plan_id": "vast-retained-disk-inventory-preflight-v1",
+  "execution_mode": "OWNER_GATED_EXPLICIT_INVENTORY_ONLY",
+  "implementation": {
+    "relative_path": "analysis/secure_wgs/retained_disk_inventory_runner.py",
+    "sha256": "REPLACE_WITH_FINAL_IMPLEMENTATION_SHA256"
+  },
+  "authorization_schema": "secure-wgs-vast-retained-disk-inventory-preflight-owner-authorization/v1",
+  "private_contract_schemas": {
+    "input_scope": "secure-wgs-retained-disk-exact-input-scope/v1",
+    "input_scope_approval": "secure-wgs-retained-disk-input-scope-approval/v1",
+    "billing_rate": "secure-wgs-vast-billing-rate-receipt/v1"
+  },
+  "permitted_lifecycle_action": "START_DESIGNATED_STOPPED_INSTANCE_RUN_READ_ONLY_RETAINED_DISK_INVENTORY_THEN_APPLY_SIGNED_DISPOSITION",
+  "input_contract": {
+    "source_type": "REGULAR_FILE_ONLY",
+    "path_policy": "ONE_PRIVATE_ABSOLUTE_ROOT_PLUS_STRICT_RELATIVE_PATHS",
+    "access_policy": "IDENTITY_SIZE_AND_SHA256_ONLY",
+    "identity_policy": "NONZERO_SHA256_OF_PINNED_PRIVATE_SOURCE_IDENTITY_RECEIPT"
+  },
+  "output_contract": {
+    "namespace_policy": "NEW_ABSENT_NAMESPACE_ONLY",
+    "source_manifest_schema": "secure-wgs-retained-disk-inventory-source-manifest/v1",
+    "inventory_receipt_schema": "secure-wgs-retained-disk-inventory-receipt/v1",
+    "generic_record_id_policy": "SEQUENTIAL_GENERIC_IDS_WITH_NO_SOURCE_IDENTIFIERS",
+    "checkpoint_policy": "FULL_EXPLICIT_NO_OVERWRITE_RECEIPT_AFTER_INITIALIZATION_AND_EACH_RECORD"
+  },
+  "runtime_contract": {
+    "read_chunk_bytes": 1048576,
+    "watchdog_source": "SIGNED_OWNER_VALIDITY_RUNTIME_AND_COST_CAPS",
+    "runtime_limit_source": "OWNER_AUTHORIZATION_MAX_RUNTIME_SECONDS",
+    "cost_limit_source": "OWNER_AUTHORIZATION_MAX_COST_USD_CENTS",
+    "billing_rate_source": "OWNER_BOUND_PRIVATE_BILLING_RATE_RECEIPT",
+    "production_platform": "LINUX_DESCRIPTOR_NOFOLLOW"
+  },
+  "forbidden_actions": [
+    "NETWORK_EGRESS",
+    "INSTANCE_START",
+    "INSTANCE_STOP",
+    "INSTANCE_DESTROY",
+    "STORAGE_DESTROY",
+    "SCIENTIFIC_ANALYSIS",
+    "VEP_EXECUTION",
+    "XTEA_EXECUTION",
+    "BREADTH_EXECUTION",
+    "PRIORITIZATION",
+    "STRUCTURAL_INTEGRATION",
+    "CANDIDATE_CHANGE",
+    "PUBLICATION",
+    "RELEASE",
+    "UPLOAD"
+  ]
+}

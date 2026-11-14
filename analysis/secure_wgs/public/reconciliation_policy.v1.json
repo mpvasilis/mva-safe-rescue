@@ -1,0 +1,229 @@
+{
+  "schema": "secure-wgs-reconciliation-policy/v1",
+  "policy_id": "track1_accepted_reconciliation_policy",
+  "terminal_state": "HUMAN_REVIEW_REQUIRED",
+  "required_receipt_roles": [
+    "primary_calling_receipt",
+    "structural_manta_receipt",
+    "structural_delly_receipt",
+    "copy_number_cnvpytor_receipt",
+    "structural_annotation_annotsv_receipt",
+    "structural_priority_exomiser_receipt",
+    "structural_review_samplot_receipt",
+    "mobile_element_xtea_receipt",
+    "repeat_expansionhunter_receipt",
+    "mitochondrial_gatk_receipt",
+    "mitochondrial_haplocheck_receipt",
+    "exomiser_exome_baseline_receipt",
+    "exomiser_exome_sensitivity_receipt",
+    "genomiser_genome_baseline_receipt",
+    "genomiser_genome_sensitivity_receipt",
+    "lirical_feature_baseline_receipt",
+    "lirical_genotype_default_receipt",
+    "lirical_genotype_strict_receipt",
+    "lirical_orphanet_sensitivity_receipt",
+    "exomiser_structural_primary_receipt",
+    "exomiser_mobile_sensitivity_receipt",
+    "read_backed_phase_whatshap_receipt",
+    "chromosome_screen_receipt"
+  ],
+  "method_version_relations": [
+    {
+      "receipt_role": "primary_calling_receipt",
+      "receipt_schema": "secure-wgs-evidence-receipt/v1",
+      "method_id": "parabricks_deepvariant",
+      "method_version": "Parabricks 4.7.1-1 + DeepVariant 1.9-compatible",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "structural_manta_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "manta",
+      "method_version": "1.6.0",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "structural_delly_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "delly",
+      "method_version": "2.3.0",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "copy_number_cnvpytor_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "cnvpytor",
+      "method_version": "1.3.2",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "structural_annotation_annotsv_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "annotsv",
+      "method_version": "3.5.7",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "structural_priority_exomiser_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser_prioritizer",
+      "method_version": "14.1.0",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "structural_review_samplot_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "samplot",
+      "method_version": "1.3.0",
+      "allowed_states": ["REVIEW_ARTIFACT_ONLY"]
+    },
+    {
+      "receipt_role": "mobile_element_xtea_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "xtea",
+      "method_version": "0.1.9",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "repeat_expansionhunter_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "expansionhunter",
+      "method_version": "5.0.0",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "mitochondrial_gatk_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "gatk",
+      "method_version": "4.7.0.0",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "mitochondrial_haplocheck_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "haplocheck",
+      "method_version": "1.3.3",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "exomiser_exome_baseline_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser",
+      "method_version": "15.1.0 + data 2602",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "exomiser_exome_sensitivity_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser",
+      "method_version": "15.1.0 + data 2602",
+      "allowed_states": ["SENSITIVITY_ONLY"]
+    },
+    {
+      "receipt_role": "genomiser_genome_baseline_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser",
+      "method_version": "15.1.0 + data 2602",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "genomiser_genome_sensitivity_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser",
+      "method_version": "15.1.0 + data 2602",
+      "allowed_states": ["SENSITIVITY_ONLY"]
+    },
+    {
+      "receipt_role": "lirical_feature_baseline_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "lirical",
+      "method_version": "2.4.1",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "lirical_genotype_default_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "lirical",
+      "method_version": "2.4.1",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "lirical_genotype_strict_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "lirical",
+      "method_version": "2.4.1",
+      "allowed_states": ["SENSITIVITY_ONLY"]
+    },
+    {
+      "receipt_role": "lirical_orphanet_sensitivity_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "lirical",
+      "method_version": "2.4.1",
+      "allowed_states": ["SENSITIVITY_ONLY"]
+    },
+    {
+      "receipt_role": "exomiser_structural_primary_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser",
+      "method_version": "15.1.0 + data 2602",
+      "allowed_states": ["COMPLETE_RESEARCH_ONLY"]
+    },
+    {
+      "receipt_role": "exomiser_mobile_sensitivity_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "exomiser",
+      "method_version": "15.1.0 + data 2602",
+      "allowed_states": ["SENSITIVITY_ONLY"]
+    },
+    {
+      "receipt_role": "read_backed_phase_whatshap_receipt",
+      "receipt_schema": "secure-wgs-lane-receipt/v1",
+      "method_id": "whatshap",
+      "method_version": "2.8",
+      "allowed_states": ["SENSITIVITY_ONLY"]
+    },
+    {
+      "receipt_role": "chromosome_screen_receipt",
+      "receipt_schema": "secure-wgs-evidence-receipt/v1",
+      "method_id": "chromosome_research_screen",
+      "method_version": "samtools 1.13 + bcftools 1.13 + CNVpytor 1.3.2",
+      "allowed_states": ["NO_SIGNAL_RESEARCH_ONLY", "SIGNAL_RESEARCH_ONLY"]
+    }
+  ],
+  "allowed_evidence_states": [
+    "COMPLETE_RESEARCH_ONLY",
+    "SENSITIVITY_ONLY",
+    "REVIEW_ARTIFACT_ONLY",
+    "NO_SIGNAL_RESEARCH_ONLY",
+    "SIGNAL_RESEARCH_ONLY"
+  ],
+  "lineage_rules": {
+    "require_exact_receipt_digest": true,
+    "require_lineage_sha256": true,
+    "require_scientific_evidence_at_or_before_cutoff": true,
+    "reject_duplicate_evidence": true
+  },
+  "score_policy": {
+    "required_handling": "SEPARATE_NON_COMMENSURATE",
+    "blending_allowed": false
+  },
+  "phase_policy": {
+    "required_status": "UNRESOLVED",
+    "inference_allowed": false,
+    "unsupported_evidence_allowed": false
+  },
+  "chromosome_screen_policy": {
+    "negative_state": "NO_SIGNAL_RESEARCH_ONLY",
+    "maximum_confidence_change": 0
+  },
+  "human_gate": {
+    "required": true,
+    "decision_receipt_schema": "secure-wgs-human-decision-receipt/v1",
+    "builder_may_author_decision": false,
+    "allowed_decisions": [
+      "APPROVED_FOR_HUMAN_RELEASE",
+      "NOT_APPROVED",
+      "MORE_REVIEW_REQUIRED"
+    ]
+  }
+}
