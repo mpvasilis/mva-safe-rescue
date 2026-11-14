@@ -378,7 +378,7 @@ def test_atomic_failure_preserves_output_and_cleans_temp(
     _write_json(source, _document())
     output.write_text("SYNTHETIC OLD CONTENT", encoding="utf-8")
 
-    def fail_replace(_source: Path, _destination: Path) -> None:
+    def fail_replace(*_args: Any, **_kwargs: Any) -> None:
         raise OSError("SYNTHETIC REPLACE FAILURE")
 
     monkeypatch.setattr("rare_mva.track1.builder.os.replace", fail_replace)
@@ -421,7 +421,10 @@ def test_parent_swap_after_validation_writes_no_candidate_content_to_public_root
 
     assert list(public_sink.iterdir()) == []
     if swap_succeeded:
-        original_parent.rmdir()
+        if sys.platform == "win32":
+            original_parent.rmdir()
+        else:
+            original_parent.unlink()
         moved_parent.rename(original_parent)
     assert output.read_text(encoding="utf-8") == "SYNTHETIC OLD CONTENT"
     assert not list(original_parent.glob(f".{output.name}.*.tmp"))
