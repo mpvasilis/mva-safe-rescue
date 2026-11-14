@@ -1,0 +1,13 @@
+{
+  "scope": "SYNTHETIC_POLICY_STRESS_TEST_NOT_FULL_WGS_BENCHMARK",
+  "seed": 20260909,
+  "cases": 2400,
+  "regimes": 4,
+  "methods": 6,
+  "wall_seconds": 17.058907499999805,
+  "clinical_accuracy_estimate": false,
+  "official_challenge_score": false,
+  "production_builder_used": true,
+  "production_scorer_used": true,
+  "protocol_sha256": "ace142bcbda3831fad3382e8b662aeb3742c8948b9fd945f1bf116dcd0185b5f"
+}

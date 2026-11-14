@@ -1,0 +1,5 @@
+regime	improved	regressed	unchanged
+informative_review	31	12	557
+uninformative_review	11	90	499
+adverse_review	4	221	375
+unresolved_true_pairs	9	78	513
