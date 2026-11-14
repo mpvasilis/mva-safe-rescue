@@ -1,0 +1,27 @@
+* text=auto eol=lf
+
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+
+# Release inventories hash exact bytes. Preserve every sealed release artifact
+# byte-for-byte so verification succeeds after cloning on any platform.
+analysis/track2/release/** -text
+analysis/external/GSE185192/release/** -text
+analysis/external/GSE134780/release/** -text
+analysis/benchmarks/release/** -text
+
+# These frozen dependency/source receipts are also referenced by exact-byte hashes.
+analysis/environment/*.renv.lock -text
+analysis/external/GSE134780/sources.json -text

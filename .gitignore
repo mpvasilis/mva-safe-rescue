@@ -1,0 +1,108 @@
+# Python environments, caches, and build products
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+build/
+dist/
+htmlcov/
+/tmp/
+.coverage
+.coverage.*
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# Secrets and local configuration
+.env
+.env.*
+*.env
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Patient, clinical, genomic, and controlled data zones
+data/
+genomics/
+clinical/
+private/
+.private/
+controlled/
+raw/
+patient-data/
+patient_data/
+*.vcf
+*.vcf.gz
+*.gvcf
+*.bcf
+*.tbi
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.ped
+*.docx
+
+# Generated outputs, archives, and model artifacts
+outputs/
+output/
+# Track 2 analysis products are reproducible and deliberately not versioned.
+/analysis/track2/results/
+/analysis/track2/_targets/
+/analysis/track2/.Rlib/
+/analysis/track2/.Rproj.user/
+/analysis/track2/renv/library/
+/analysis/track2/.Rhistory
+archives/
+models/
+checkpoints/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.pt
+*.pth
+*.ckpt
+
+# Tiny, reviewed, obviously synthetic test fixtures remain permitted.
+!tests/
+!tests/fixtures/
+!tests/fixtures/**
+
+# Public inputs are downloaded from pinned manifests; keep only public provenance text.
+/public_data/**
+!/public_data/**/
+!/public_data/README.md
+!/public_data/**/README.md
+!/public_data/**/*source_manifest*.tsv
+
+# Authorized case-specific helpers contain fixed gated coordinates. They are
+# executable only inside the segregated local workflow and must never be public.
+/analysis/**/targeted_evidence.py
+/tests/test_targeted_evidence.py
