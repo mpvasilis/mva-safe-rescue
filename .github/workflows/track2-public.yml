@@ -1,0 +1,116 @@
+name: Track 2 public R pipeline
+
+on:
+  push:
+    paths:
+      - "analysis/track2/**"
+      - "analysis/environment/**"
+      - "analysis/external/GSE134780/**"
+      - "analysis/external/GSE185192/**"
+      - "public_data/README.md"
+      - "public_data/GSE185192/README.md"
+      - ".github/workflows/track2-public.yml"
+  pull_request:
+    paths:
+      - "analysis/track2/**"
+      - "analysis/environment/**"
+      - "analysis/external/GSE134780/**"
+      - "analysis/external/GSE185192/**"
+      - "public_data/README.md"
+      - "public_data/GSE185192/README.md"
+      - ".github/workflows/track2-public.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-track2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      R_KEEP_PKG_SOURCE: yes
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.6.1"
+          use-public-rspm: true
+
+      - name: Cache Track 2 local R library
+        uses: actions/cache@v4
+        with:
+          path: analysis/track2/.Rlib
+          key: ${{ runner.os }}-r-4.6.1-bioc-3.23-${{ hashFiles('analysis/environment/track2.renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-r-4.6.1-bioc-3.23-
+
+      - name: Restore and verify exact packages
+        run: |
+          Rscript -e 'dir.create("analysis/track2/.Rlib", recursive=TRUE, showWarnings=FALSE); install.packages("renv", lib="analysis/track2/.Rlib", repos="https://cloud.r-project.org")'
+          Rscript analysis/environment/manage.R restore track2
+          Rscript analysis/environment/manage.R check track2
+
+      - name: Lightweight registry and syntax validation
+        run: Rscript analysis/track2/run.R --dry-run
+
+      - name: Download and validate pinned public sources
+        run: Rscript analysis/track2/run.R --validate-only --download
+
+      - name: Focused R tests
+        run: Rscript analysis/track2/tests/testthat.R
+
+      - name: Run fixed-settings public-data pipeline
+        run: Rscript analysis/track2/run.R
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run independent mouse context under its locked plan
+        run: |
+          python analysis/external/GSE134780/fetch.py
+          Rscript analysis/external/GSE134780/run.R --self-test
+          Rscript analysis/external/GSE134780/run.R
+
+  external-gse185192:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      R_KEEP_PKG_SOURCE: yes
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.6.1"
+          use-public-rspm: true
+
+      - name: Cache GSE185192 local R library
+        uses: actions/cache@v4
+        with:
+          path: analysis/external/GSE185192/.Rlib
+          key: ${{ runner.os }}-r-4.6.1-bioc-3.23-gse185192-${{ hashFiles('analysis/environment/external.renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-r-4.6.1-bioc-3.23-gse185192-
+
+      - name: Restore and verify exact packages
+        run: |
+          Rscript -e 'dir.create("analysis/external/GSE185192/.Rlib", recursive=TRUE, showWarnings=FALSE); install.packages("renv", lib="analysis/external/GSE185192/.Rlib", repos="https://cloud.r-project.org")'
+          Rscript analysis/environment/manage.R restore external
+          Rscript analysis/environment/manage.R check external
+
+      - name: Offline configuration and release-integrity tests
+        run: Rscript analysis/external/GSE185192/run.R --test
+
+      - name: Download and verify 27 pinned public inputs
+        run: Rscript analysis/external/GSE185192/run.R --download-only
+
+      - name: Run four separate contextual analyses
+        run: Rscript analysis/external/GSE185192/run.R
+
+      - name: Verify explicit release whitelist and checksums
+        run: Rscript analysis/external/GSE185192/run.R --verify-release
